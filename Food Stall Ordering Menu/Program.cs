@@ -51,15 +51,21 @@ namespace OrderingSystem
         public void PayOrder()
         {
             Console.Clear();
-            Console.WriteLine("   JEYLO'S FOOD STALL   ");
-            Console.WriteLine("  >------------------<  \n\n");
-            Console.WriteLine("Order Details:");
+            Console.WriteLine("\n\n         JEYLO'S FOOD STALL   ");
+            Console.WriteLine("  >-----------------------------<  ");
+            Console.WriteLine("   Order Details:\n\n");
             foreach (var product in Products)
             {
-                Console.WriteLine($"{product.Name} ({product.Variation}) - ₱{product.Price}");
+                Console.WriteLine($"   {product.Name} ({product.Variation}) - P{product.Price}");
             }
-            Console.WriteLine($"\nTotal: ₱{Total}");
-            Console.WriteLine("\nThank You For Buying!");
+            Console.WriteLine($"\n   Total: P{Total}");
+            Console.WriteLine("  >-----------------------------<  ");
+            Console.WriteLine("      Thank You For Buying!");
+            Console.WriteLine("        Have A Great Day!");
+
+            Products.Clear();
+            Total = 0;
+
             Console.Write("\n\nPress Any Key To Proceed.");
             Console.ReadLine();
             Console.Clear();
@@ -67,7 +73,6 @@ namespace OrderingSystem
 
         public void CancelOrder()
         {
-            Products.Clear();
             Total = 0;
             Console.Clear();
         }
@@ -75,12 +80,15 @@ namespace OrderingSystem
         public void DisplayOrder()
         {
             Console.Clear();
-            Console.WriteLine("Order Summary:\n");
+            Console.WriteLine("\n\n         JEYLO'S FOOD STALL   ");
+            Console.WriteLine("  >-----------------------------<  ");
+            Console.WriteLine("   Order Summary:\n\n");
             foreach (var product in Products)
             {
-                Console.WriteLine($"{product.Name} ({product.Variation}) - ₱{product.Price}");
+                Console.WriteLine($"   {product.Name} ({product.Variation}) - P{product.Price}");
             }
-            Console.WriteLine($"Total: ₱{Total}");
+            Console.WriteLine($"\n   Total: P{Total}");
+            Console.WriteLine("  >-----------------------------<  ");
             Console.Write("\n\nPress Any Key To Proceed.");
             Console.ReadLine();
             Console.Clear();
@@ -114,17 +122,18 @@ namespace OrderingSystem
 
             while (true)
             {
-
                 Console.WriteLine("\n\n   WELCOME TO JEYLO'S FOOD STALL   ");
-                Console.WriteLine("  >-----------------------------<  \n\n");
+                Console.WriteLine("  >-----------------------------<  \n");
 
-                Console.WriteLine("1. Add Product");
-                Console.WriteLine("2. View Order");
-                Console.WriteLine("3. Pay Order");
-                Console.WriteLine("4. Cancel Order");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("   1. Add Product");
+                Console.WriteLine("   2. View Order");
+                Console.WriteLine("   3. Pay Order");
+                Console.WriteLine("   4. Cancel Order");
+                Console.WriteLine("   5. Exit");
 
-                Console.Write("\nChoose an option: ");
+                Console.WriteLine("\n  >-----------------------------<  ");
+
+                Console.Write("   Choose an option: ");
                 var option = Console.ReadLine();
 
                 switch (option)
@@ -137,20 +146,20 @@ namespace OrderingSystem
                         break;
                     case "3":
                         order.PayOrder();
-                        Console.WriteLine("Pay order");
+                        Console.WriteLine("PAY ORDER");
                         break;
                     case "4":
                         order.CancelOrder();
-                        Console.WriteLine("Order cancelled.");
+                        Console.WriteLine("ORDER CANCELLED.");
                         break;
                     case "5":
                         return;
                     default:
-                        Console.Clear();
                         Console.WriteLine("\nInvalid option. Please choose again.");
 
                         Console.Write("\n\nPress Any Key To Proceed.");
                         Console.ReadLine();
+                        Console.Clear();
                         break;
                 }
             }
@@ -159,13 +168,15 @@ namespace OrderingSystem
         static void AddProduct(Order order, Product[] products)
         {
             Console.Clear();
-            Console.WriteLine("\nAvailable Products:");
+            Console.WriteLine("\n\n   WELCOME TO JEYLO'S FOOD STALL   ");
+            Console.WriteLine("  >-----------------------------<  ");
+            Console.WriteLine("   Available Products:\n\n");
             for (int i = 0; i < products.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. {products[i].Name} ({products[i].Variation}) - ₱{products[i].Price}");
+                Console.WriteLine($"   {i + 1}. {products[i].Name} ({products[i].Variation}) - ₱{products[i].Price}");
             }
-
-            Console.Write("\nEnter product number to add: ");
+            Console.WriteLine("\n  >-----------------------------<  ");
+            Console.Write("   Enter a product to add: ");
             var productNumber = Convert.ToInt32(Console.ReadLine()) - 1;
 
             if (productNumber >= 0 && productNumber < products.Length)
