@@ -103,21 +103,25 @@ namespace OrderingSystem
 
             var products = new[]
             {
-                new Product("Product 1", 10.99m) { Variation = "Small" },
-                new Product("Product 1", 14.99m) { Variation = "Medium" },
-                new Product("Product 1", 19.99m) { Variation = "Large" },
+                new Product("Burger", 30.00m) { Variation = "Chicken" },
+                new Product("Burger", 45.00m) { Variation = "Pork" },
+                new Product("Burger", 60.00m) { Variation = "Beef" },
 
-                new Product("Product 2", 9.99m) { Variation = "Red" },
-                new Product("Product 2", 12.99m) { Variation = "Blue" },
+                new Product("Hotdog", 28.00m) { Variation = "Small" },
+                new Product("Hotdog", 48.00m) { Variation = "Medium" },
+                new Product("Hotdog", 78.00m) { Variation = "Large" },
 
-                new Product("Product 3", 7.99m) { Variation = "Green" },
-                new Product("Product 3", 10.99m) { Variation = "Yellow" },
+                new Product("Fries", 20.00m) { Variation = "Small" },
+                new Product("Fries", 35.00m) { Variation = "Medium" },
+                new Product("Fries", 65.00m) { Variation = "Large" },
 
-                new Product("Product 4", 5.99m) { Variation = "Small" },
-                new Product("Product 4", 8.99m) { Variation = "Medium" },
-
-                new Product("Product 5", 3.99m) { Variation = "Single" },
-                new Product("Product 5", 6.99m) { Variation = "Pack of 2" },
+                new Product("Drinks", 12.00m) { Variation = "Yakult" },
+                new Product("Drinks", 15.00m) { Variation = "Water" },
+                new Product("Drinks", 18.00m) { Variation = "C2" },
+                new Product("Drinks", 22.00m) { Variation = "Sting" },
+                new Product("Drinks", 22.00m) { Variation = "Pepsi" },
+                new Product("Drinks", 22.000m) { Variation = "Coca-Cola" },
+                new Product("Drinks", 25.00m) { Variation = "Mountain Dew" },
             };
 
             while (true)
@@ -146,11 +150,11 @@ namespace OrderingSystem
                         break;
                     case "3":
                         order.PayOrder();
-                        Console.WriteLine("PAY ORDER");
+                        Console.WriteLine("   ORDER PAID");
                         break;
                     case "4":
                         order.CancelOrder();
-                        Console.WriteLine("ORDER CANCELLED.");
+                        Console.WriteLine("   ORDER CANCELLED.");
                         break;
                     case "5":
                         return;
@@ -182,12 +186,12 @@ namespace OrderingSystem
             if (productNumber >= 0 && productNumber < products.Length)
             {
                 order.AddProduct(products[productNumber]);
-                Console.WriteLine("Product added to order.");
+                Console.WriteLine("   PRODUCT ADDED TO THE ORDER.");
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Invalid product number.");
+                Console.WriteLine("   INVALID PRODUCT NUMBER.");
             }
         }
     }
