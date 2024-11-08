@@ -177,7 +177,7 @@ namespace OrderingSystem
             Console.WriteLine("   Available Products:\n\n");
             for (int i = 0; i < products.Length; i++)
             {
-                Console.WriteLine($"   {i + 1}. {products[i].Name} ({products[i].Variation}) - ₱{products[i].Price}");
+                Console.WriteLine($"   {i + 1}. {products[i].Name} ({products[i].Variation}) - P{products[i].Price}");
             }
             Console.WriteLine("\n  >-----------------------------<  ");
             Console.Write("   Enter a product to add: ");
