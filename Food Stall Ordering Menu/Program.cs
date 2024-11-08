@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic;
-using OrderingSystem;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Buffers.Text;
-using System.Runtime.Intrinsics.X86;
-using System.Threading.Channels;
+using Food_Stall_Ordering_Menu;
 
-namespace OrderingSystem
+namespace Food_Stall_Ordering_Menu
 {
     public class Product
     {
